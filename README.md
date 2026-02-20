@@ -1,7 +1,46 @@
 # Destiny Activity Compiler
-Command line program designed to compile all the activities ever completed by a player, and output it to activities.csv file
-This is a program designed to be later implemented into an application, however it works as a standalone. can be run using ./tracker in terminal, however if you wish to compile it with your personal API key the command \n
- g++ tracker.cpp -o tracker -lcurl -DBUNGIE_API_KEY="\"your_key_here\"" \n
- will do that.
- The output contains the date of the activity, the time it took, and a link to the pgcr on the official bungie.net, a version containing a GUI and additional details will be created later.\n
- to retrieve the data of a user type in their bungie name and id, an example is provided
+
+A command-line C++ application that retrieves a player's recent Destiny 2 activity history using the Bungie API and exports it to a CSV file.
+
+---
+
+## Overview
+
+Destiny Activity Compiler is designed to:
+
+- Retrieve a player's activity history from the Bungie API
+- Compile activity data into a structured CSV file
+- Serve as a backend foundation for a future GUI-based application
+
+The program currently runs as a standalone CLI tool, but it is structured to be integrated into a larger application later.
+
+---
+
+## Features
+
+- Search player by Bungie Name (e.g. `Char#5202`)
+- Automatically detects correct platform membership
+- Retrieves recent activity data
+- Outputs results to `activities.csv`
+- Includes:
+  - Activity date
+  - Activity duration
+  - Link to the official Bungie PGCR (Post Game Carnage Report)
+
+---
+
+## Requirements
+
+- C++17 or newer
+- libcurl
+- nlohmann/json (single header version)
+- A valid Bungie API key
+
+---
+
+## Build Instructions
+
+### Option 1 — Compile with API Key as Macro
+
+```bash
+g++ -std=c++17 tracker.cpp -o tracker -lcurl -DBUNGIE_API_KEY="\"your_key_here\""
